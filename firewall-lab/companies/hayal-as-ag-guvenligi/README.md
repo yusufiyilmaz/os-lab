@@ -233,7 +233,7 @@ Güvenlik duvarı kuralları yukarıdan aşağı okur, **eşleşen ilk kural** u
 
 1. **Temel servisler:** DHCP, DNS ve NTP açılır. Açılmazsa cihazlar IP alamaz, ağ durur.
 2. **Yönetim:** Ayar ekranı sadece yönetim bölümünden (VLAN 99) açılır. Ankara BT'si ve Zabbix şubelerdeki cihazlara VPN üzerinden ulaşır.
-3. **Yasaklar:** Misafir şirket ağına, öğrenci veritabanına, test sunucusu gerçek sistemlere giremez.
+3. **Yasaklar:** Misafirler şirket ağına, öğrenciler veritabanına, test sunucuları gerçek sistemlere giremez.
 4. **İzinler:** Çalışanların kendi sunucuları, Ankara'daki ortak sunucular, internet çıkışı ve Ankara'ya VPN. Güvenlik duvarları ve sunucular güncellemelerini de bu izinlerle indirir. Son kural her şeyi kapattığı için bu izinler tek tek yazılır.
 5. **Son kural (default deny):** Yukarıda izin verilmeyen her şey engellenir ve kaydedilir.
 
@@ -247,7 +247,7 @@ Güvenlik duvarı kuralları yukarıdan aşağı okur, **eşleşen ilk kural** u
 
 | Ne? | Nerede? | Nasıl korunuyor? |
 |-----|---------|------------------|
-| Şirket web sitesi | Ankara DMZ (VLAN 40) | Önünde Cloudflare WAF var. DMZ'ye sadece Cloudflare adresleri ulaşır |
+| Şirket web sitesi | Ankara DMZ (VLAN 40) | Önünde Cloudflare WAF var. İnternetten DMZ'ye sadece Cloudflare adresleri ulaşır |
 | Not ve uzaktan eğitim sistemi | Akademik sunucu bölümü (VLAN 60) | İnternete açık değil. Kampüsten web ile, personel dışarıdan VPN ile girer |
 | Mobil uygulama ve açık API | Yok | |
 
@@ -261,7 +261,7 @@ Ankara ve Akademik şubede iki cihaz vardır (HA, aktif-pasif). Biri bozulursa d
 
 | Kayıt türü | Süre | Neden? |
 |------------|------|--------|
-| Akademik şube ve İstanbul misafir Wi-Fi'ı internet erişim kayıtları | En az 2 yıl, zaman damgalı | 5651 sayılı kanun |
+| Akademik şube ve İstanbul misafir Wi-Fi'ı internet erişim kayıtları | 2 yıl, zaman damgalı | 5651 sayılı kanun |
 | Güvenlik duvarı ve güvenlik olayları | 1 yıl (son 90 gün hızlı erişilebilir) | Olay araştırması ve denetim |
 | Londra kayıtları | Gerektiği kadar, en az kişisel veriyle | UK GDPR |
 | Kamera kayıtları ve kişisel veriler | Gerektiği kadar | KVKK |
@@ -291,7 +291,7 @@ Fiyatlar yaklaşık ve dolar cinsinden. Üreticiler her modelin fiyatını yayı
 | Check Point | Spark 1600 5.049, Spark 1800 6.731, Force 9100 56.030, Force 19100 116.229 | 1 yıllık paket. Force 9100 Plus model |
 | Cisco | 3105 31.155, 3120 59.978 | Satıcı fiyatı |
 | Sophos | XGS 2100 2.293, XGS 2300 3.495, XGS 5500 23.586 | Satıcı fiyatı |
-| Diğer | pfSense (Netgate 6100) 949, OPNsense 0 | Netgate üretici mağazası, MAX model. OPNsense ücretsiz, sunucu parası ayrı |
+| Diğer | pfSense (Netgate 6100) 1.599, OPNsense 0 | Netgate üretici mağazası, MAX model. OPNsense ücretsiz, sunucu parası ayrı |
 
 Check Point fiyatları abonelik içerdiği için sadece cihaz fiyatlarıyla birebir karşılaştırılmaz. Ankara ve Akademik'te iki cihaz olduğu için cihaz maliyeti iki katıdır.
 
@@ -319,7 +319,7 @@ Check Point fiyatları abonelik içerdiği için sadece cihaz fiyatlarıyla bire
 |---|-------|-------------------:|------------------|
 | 1 | **FortiGate 200F** | 3 Gbps | Diğer şubelerdeki FortiGate'lerle aynı ekrandan yönetilir. Bütün şubelerin bağlandığı merkez olmaya uygun. 1 Gbps hattın 3 katı hız, büyüme payı var |
 | 2 | Palo Alto PA-1420 | 4,8 Gbps | Hangi uygulamanın kullanıldığını çok iyi tanır. Daha pahalı |
-| 3 | Check Point Quantum Force 9100 | 4,95 Gbps | Kurumsal yönetim paneli çok gelişmiş. Lisans maliyeti yüksek |
+| 3 | Check Point Quantum Force 9100 | 6,5 Gbps | Kurumsal yönetim paneli çok gelişmiş. Lisans maliyeti yüksek |
 | 4 | Cisco Secure Firewall 3105 | 10 Gbps | Çok güçlü, ağda Cisco switch varsa uyumlu. Bu şube için fazla büyük ve pahalı |
 | 5 | Sophos XGS 2300 | 1,4 Gbps | Uygun fiyatlı, kullanımı kolay. 1 Gbps hatta yetiyor ama büyüme payı az |
 
@@ -487,7 +487,7 @@ Yurt dışı satış ofisi. Küçük bir ekip.
 
 1. **Neden yarıyıl tatilinde?** Dersler ve sınavlar aksamasın. Kampüs boşken sorunlar sakince çözülür.
 2. **Öğrenci girişi:** Öğrenci Wi-Fi'a bağlanınca bir giriş sayfası açılır, öğrenci numarası ve şifresiyle girer. Böylece her bağlantının kime ait olduğu bilinir.
-3. **5651 sayılı kanun:** "Hangi öğrenci, ne zaman, hangi adresi aldı" kayıtları en az 2 yıl saklanır.
+3. **5651 sayılı kanun:** "Hangi öğrenci, ne zaman, hangi adresi aldı" kayıtları 2 yıl saklanır.
 4. **Hız sınırı:** Her öğrenci en fazla 5 Mbps kullanabilir.
 5. **Öğrenciler not sistemine giremez:** Öğrenci bölümü, sunuculara sadece web sitesi üzerinden erişebilir. Veritabanına erişemez.
 6. **Öğrenciler birbirini göremez:** Wi-Fi'da her öğrencinin cihazı diğerlerinden yalıtılır.
@@ -591,13 +591,13 @@ Yeni ürünler üzerinde çalışan ekip. Ankara'da, diğer birimlerden ayrı bi
 
 # Kaynaklar
 
-Hız değerleri üreticilerin teknik belgelerinden (datasheet) ve satıcı sayfalarından alındı (Ekim 2026).
+Hız değerleri üreticilerin teknik belgelerinden (datasheet) ve satıcı sayfalarından alındı, Kasım 2026'da yeniden kontrol edildi.
 
 | Üretici | Kaynak |
 |---------|--------|
 | Fortinet (FortiGate) | [Fortinet Product Matrix (2024)](https://www.boll-europe.at/datasheets/Fortinet_Product_Matrix.pdf), [Nomios – FortiGate modelleri](https://www.nomios.com/partners/fortinet/network-security/fortigate-firewall/entry-and-mid-range/), [SHI – FortiGate 600F](https://www.shi.com/product/44900362/Fortinet-FortiGate-600F), [datacenter360 – FortiGate 90G](https://datacenter360.ca/fortinet/fortigate/fortigate-90g-firewall/) |
 | Palo Alto Networks | [Palo Alto – donanım güvenlik duvarı serileri](https://www.paloaltonetworks.com/resources/infographics/hwfw-upgrade) |
-| Check Point | [Quantum Spark 1900/2000 datasheet](https://www.checkpoint.com/downloads/quantum-spark-1900-2000-datasheet.pdf), [Check Point cihaz karşılaştırması](https://www.checkpoint.com/check-point-security-appliances-comparison), [Quantum Force 9100](https://www.checkpoint.com/quantum/force/9100/), [Quantum Force 19100](https://www.checkpoint.com/quantum/force/19100/) |
+| Check Point | [Quantum Spark 1600/1800 datasheet](https://www.checkpoint.com/downloads/products/1600-1800-security-gateway-datasheet.pdf), [Check Point cihaz karşılaştırması](https://www.checkpoint.com/check-point-security-appliances-comparison), [Quantum Force 9100](https://www.checkpoint.com/quantum/force/9100/), [Quantum Force 19100](https://www.checkpoint.com/quantum/force/19100/) |
 | Cisco | [Secure Firewall 3100 datasheet](https://www.cisco.com/c/en/us/products/collateral/security/firewalls/secure-firewall-3100-series-ds.html) |
 | Sophos | [Sophos XGS serisi](https://www.sophos.com/en-gb/products/next-gen-firewall/xgs-1u-distributed-edge-firewalls) |
-| Netgate (pfSense) | [Netgate 6100](https://shop.netgate.com/products/6100-base-pfsense), [Suricata forumu – IPS açıkken hız düşüşü](https://forum.suricata.io/t/throughput-drop-on-netgate-8200-max-lan-vlan-ix1-with-suricata-inline-mode/6060) |
+| Netgate (pfSense) | [Netgate 6100 MAX](https://shop.netgate.com/products/6100-max-pfsense), [Suricata forumu – IPS açıkken hız düşüşü](https://forum.suricata.io/t/throughput-drop-on-netgate-8200-max-lan-vlan-ix1-with-suricata-inline-mode/6060) |
