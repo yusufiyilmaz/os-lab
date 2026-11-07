@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>os-lab</title>
+  <link rel="stylesheet" href="launcher.css" />
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 256 256" width="56" height="56"><rect width="256" height="256" rx="56" fill="#171C24"/><g transform="translate(20 20) scale(.84)"><g fill="none" stroke="#E7ECF3" stroke-width="16" stroke-linecap="square" stroke-linejoin="miter"><path d="M196 116V72L128 32 60 72v96l68 40 40-24"/><path d="M153 150h55" stroke="#4EA8FF"/></g></g></svg>
+    </div>
+    <h1>os-lab</h1>
+    <p id="status" role="status">Starting the console…</p>
+    <div id="spinner" class="spinner" aria-hidden="true"></div>
+    <section id="problem" hidden>
+      <pre id="detail"></pre>
+      <div class="row">
+        <button id="retry" type="button">Retry</button>
+        <button id="choose" type="button" class="secondary">Use my os-lab checkout…</button>
+        <button id="reset" type="button" class="secondary" hidden>Use bundled copy</button>
+      </div>
+      <p class="hint" id="where"></p>
+    </section>
+  </main>
+  <script src="launcher.js"></script>
+</body>
+</html>
