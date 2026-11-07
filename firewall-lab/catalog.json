@@ -1602,7 +1602,7 @@
         {
           "product": "Check Point Quantum Force 9100",
           "vendor": "Check Point",
-          "throughputGbps": 4.95,
+          "throughputGbps": 6.5,
           "priceUsd": 56030
         },
         {
@@ -1664,7 +1664,7 @@
           "product": "pfSense (Netgate 6100)",
           "vendor": "Netgate",
           "throughputGbps": 1.0,
-          "priceUsd": 949
+          "priceUsd": 1599
         }
       ]
     },
@@ -1713,7 +1713,7 @@
           "product": "pfSense (Netgate 6100)",
           "vendor": "Netgate",
           "throughputGbps": 1.0,
-          "priceUsd": 949
+          "priceUsd": 1599
         }
       ]
     },
@@ -1860,7 +1860,7 @@
           "product": "pfSense (Netgate 6100)",
           "vendor": "Netgate",
           "throughputGbps": 1.0,
-          "priceUsd": 949
+          "priceUsd": 1599
         }
       ]
     },

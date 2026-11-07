@@ -8606,7 +8606,7 @@ export const COMPANIES: Company[] = [
               {
                 "product": "Check Point Quantum Force 9100",
                 "vendor": "Check Point",
-                "throughputGbps": 4.95,
+                "throughputGbps": 6.5,
                 "priceUsd": 56030,
                 "reason": "Kurumsal yönetim paneli çok gelişmiş. Lisans maliyeti yüksek"
               },
@@ -8651,7 +8651,7 @@ export const COMPANIES: Company[] = [
                 "port": 443,
                 "from": "cloudflare-waf",
                 "to": "vlan40-dmz",
-                "note": "The company web site sits in the DMZ behind Cloudflare WAF. Only Cloudflare addresses reach it, so nobody can go around the WAF."
+                "note": "The company web site sits in the DMZ behind Cloudflare WAF. From the internet only Cloudflare addresses reach it, so nobody can go around the WAF."
               },
               {
                 "action": "deny",
@@ -8832,7 +8832,7 @@ export const COMPANIES: Company[] = [
                 "product": "pfSense (Netgate 6100)",
                 "vendor": "Netgate",
                 "throughputGbps": 1.0,
-                "priceUsd": 949,
+                "priceUsd": 1599,
                 "reason": "Ücretsiz yazılım, ucuz donanım. Ama üretici desteği sınırlı ve BT ekibinin bilgisi önemli"
               }
             ],
@@ -9015,7 +9015,7 @@ export const COMPANIES: Company[] = [
                 "product": "pfSense (Netgate 6100)",
                 "vendor": "Netgate",
                 "throughputGbps": 1.0,
-                "priceUsd": 949,
+                "priceUsd": 1599,
                 "reason": "Ucuz. Ama uzaktan yönetimi ve desteği diğerleri kadar kolay değil"
               }
             ],
@@ -9635,7 +9635,7 @@ export const COMPANIES: Company[] = [
                 "product": "pfSense (Netgate 6100)",
                 "vendor": "Netgate",
                 "throughputGbps": 1.0,
-                "priceUsd": 949,
+                "priceUsd": 1599,
                 "reason": "Ucuz ama kum havuzu ve DLP hazır gelmiyor. En gizli şube için uygun değil"
               }
             ],
@@ -9728,7 +9728,7 @@ export const COMPANIES: Company[] = [
       "note": "Branches connect to the Ankara hub by encrypted VPN; home workers use VPN with two-step verification; firewall admin screens are reachable only from the management VLAN."
     },
     "monitoring": {
-      "siem": "Wazuh SIEM in Ankara (any vendor's logs, including the R&D Check Point), Zabbix for line and device health, GLPI ticketing so no incident is forgotten. Log retention: firewall and security logs are kept for 1 year, the last 90 days online; academic and Istanbul guest Wi-Fi internet access logs are kept at least 2 years with a timestamp (Law 5651); London logs hold as little personal data as possible (UK GDPR). Turkish sites follow KVKK: camera recordings and personal data are kept only as long as needed.",
+      "siem": "Wazuh SIEM in Ankara (any vendor's logs, including the R&D Check Point), Zabbix for line and device health, GLPI ticketing so no incident is forgotten. Log retention: firewall and security logs are kept for 1 year, the last 90 days online; academic and Istanbul guest Wi-Fi internet access logs are kept for 2 years with a timestamp (Law 5651); London logs hold as little personal data as possible (UK GDPR). Turkish sites follow KVKK: camera recordings and personal data are kept only as long as needed.",
       "owner": "The NOC job belongs to the Ankara IT team; the SOC (4 L1, 2 L2, 1 L3 and a SOC manager) owns security alerts. The Ankara IT team owns patching and backups: Fortinet and Check Point update notices are followed automatically and a security update is installed as soon as it is released; on top of that, the firmware of every device is checked every 30 days; every firewall config is exported to the Ankara backup server each night and after every change, and a restore is tested every 3 months.",
       "alertSink": "SIEM alerts to the SOC by phone, e-mail and message; weekday 08:00-24:00 in-house SOC, nights and weekends an outsourced security firm, on-call person phoned for critical alerts.",
       "appVsSecurity": "NOC watches whether the network works; SOC watches attacks; handling follows the NIST four-phase incident process."
